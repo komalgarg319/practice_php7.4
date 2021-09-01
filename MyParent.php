@@ -25,3 +25,4 @@ class MyChild extends MyParent
 
 $obj = new MyChild();
 $obj->age = "10";
+

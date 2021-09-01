@@ -1,33 +1,35 @@
 <?php
-
-header('Content-type: text/plain');
-
-class B
-{
-    private function B()
+class DatabaseManager{
+    private static $instance;
+    /**
+    * public constructor
+    */ 
+    private function __construct()
     {
-
+        // here for example you make a connection to a databse
     }
-
-    private static $instance = null;
-
-    static function getInstance()
-    {
-        if (self::$instance == null) {
-            $instance = new B();
-        } else {
-            return self::$instance ;
-        }
+    /**
+     * getInstance
+     * 
+     * this method will return instance of the class
+     */
+    public static function getInstance(){
+        if(!self::$instance)
+            self::$instance = new self;
+        return self::$instance;
     }
-
-    public function printFile()
+    public function query($statement) 
     {
-        echo "Print file.";
+       // query the database
     }
 }
-
-$obj = B::getInstance();
-$obj->printFile();
-
-
-
+// $db1 = new DatabaseManager();
+// $db2 = new DatabaseManager();
+// $db3 = new DatabaseManager();
+$db1 = DatabaseManager::getInstance();
+$db2 = DatabaseManager::getInstance();
+$db3 = DatabaseManager::getInstance();
+// print these objects
+echo "<pre>";
+var_dump($db1, $db2, $db3);
+echo "</pre>";

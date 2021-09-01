@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost','root','','mytestdb');
+$conn = mysqli_connect('localhost','root','','test');
 if(!$conn){
     die(mysqli_connect_errno());
 }else{
@@ -32,12 +32,12 @@ if(!$conn){
 //}
 
 //update query
-//$sql = 'update mytable set name="Vivek" where id=1';
-//if(mysqli_query($conn,$sql)){
-//    echo "update successfully";
-//}else{
-//    echo mysqli_error($conn);
-//}
+$sql = 'update employee set name="Vivek90" where id=1';
+if(mysqli_query($conn,$sql)){
+   echo "update successfully";
+}else{
+   echo mysqli_error($conn);
+}
 
 //delete record
 //$sql = 'delete from mytable where name="komal"';
@@ -89,13 +89,13 @@ if(!$conn){
 //    echo "0 results";
 //}
 
-//$sql = 'SELECT A.CustomerName As name1,B.CustomerName As name2 FROM customers A,customers B
-//        where A.CustomerID <> B.CustomerID And A.Country = B.Country';
-//$result = mysqli_query($conn,$sql);
-//if(mysqli_num_rows($result)){
-//    //print_r(mysqli_fetch_assoc($result));
-//    while($rows = mysqli_fetch_assoc($result) ){
-//        echo $rows['name1'].'--'.$rows['name2']."\n";
-//    }
-//}
+$sql = 'SELECT A.CustomerName As name1,B.CustomerName As name2 FROM customers A,customers B
+       where A.CustomerID <> B.CustomerID And A.Country = B.Country';
+$result = mysqli_query($conn,$sql);
+if(mysqli_num_rows($result)){
+   //print_r(mysqli_fetch_assoc($result));
+   while($rows = mysqli_fetch_assoc($result) ){
+       echo $rows['name1'].'--'.$rows['name2']."\n";
+   }
+}
 
